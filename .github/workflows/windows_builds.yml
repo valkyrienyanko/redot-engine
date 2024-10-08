@@ -100,11 +100,11 @@ jobs:
           tests: ${{ matrix.tests }}
 
       - name: Generate Glue Code
-        if: ${{ matrix.cache-name != 'windows-editor-mono' }}
+        if: ${{ matrix.cache-name == 'windows-editor-mono' }}
         run: ./bin/redot.windows.editor.x86_64.mono.exe --headless --generate-mono-glue modules/mono/glue
 
       - name: Build GodotSharp
-        if: ${{ matrix.cache-name != 'windows-editor-mono' }}
+        if: ${{ matrix.cache-name == 'windows-editor-mono' }}
         run: python .modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin
 
       - name: Save Godot build cache
