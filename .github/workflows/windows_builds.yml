@@ -105,7 +105,7 @@ jobs:
 
       - name: Build GodotSharp
         if: ${{ matrix.cache-name == 'windows-editor-mono' }}
-        run: python .modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin
+        run: python modules/mono/build_scripts/build_assemblies.py --godot-output-dir=./bin
 
       - name: Save Godot build cache
         uses: ./.github/actions/godot-cache-save
