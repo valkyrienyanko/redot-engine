@@ -32,7 +32,7 @@
 
 /**
  @file  godot.cpp
- @brief ENet Godot specific functions
+ @brief ENet Redot specific functions
 */
 
 #include "core/io/dtls_server.h"
