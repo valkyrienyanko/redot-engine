@@ -5,6 +5,8 @@
 /*                             GODOT ENGINE                               */
 /*                        https://godotengine.org                         */
 /**************************************************************************/
+/* Copyright (c) 2024-present Redot Engine contributors                   */
+/*                                          (see REDOT_AUTHORS.md)        */
 /* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
@@ -689,6 +691,7 @@ void fill_default_theme(Ref<Theme> &theme, const Ref<Font> &default_font, const 
 	theme->set_icon("forward_folder", "FileDialog", icons["arrow_right"]);
 	theme->set_icon("reload", "FileDialog", icons["reload"]);
 	theme->set_icon("toggle_hidden", "FileDialog", icons["visibility_visible"]);
+	theme->set_icon("toggle_filename_filter", "FileDialog", icons["toggle_filename_filter"]);
 	theme->set_icon("folder", "FileDialog", icons["folder"]);
 	theme->set_icon("file", "FileDialog", icons["file"]);
 	theme->set_icon("create_folder", "FileDialog", icons["folder_create"]);
