@@ -2034,7 +2034,7 @@ TEST_CASE("[String][URL] Parse URL") {
 	CHECK_URL("https://docs.redotengine.org/en/stable/", "https://", "docs.redotengine.org", 0, "/en/stable/", "", Error::OK);
 	CHECK_URL("https://me:secret@redotengine.org", "https://", "redotengine.org", 0, "", "", Error::OK);
 	// TODO: ADD redotengine.org ipv6"
-        CHECK_URL("https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]/ipv6", "https://", "fedc:ba98:7654:3210:fedc:ba98:7654:3210", 0, "/ipv6", "", Error::OK);
+	CHECK_URL("https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]/ipv6", "https://", "fedc:ba98:7654:3210:fedc:ba98:7654:3210", 0, "/ipv6", "", Error::OK);
 
 	// Scheme vs Fragment.
 	CHECK_URL("google.com/#goto=http://redirect_url/", "", "google.com", 0, "/", "goto=http://redirect_url/", Error::OK);
