@@ -2,9 +2,11 @@
 /*  test_string.h                                                         */
 /**************************************************************************/
 /*                         This file is part of:                          */
-/*                             REDOT ENGINE                               */
-/*                        https://redotengine.org                         */
+/*                             GODOT ENGINE                               */
+/*                        https://godotengine.org                         */
 /**************************************************************************/
+/* Copyright (c) 2024-present Redot Engine contributors                   */
+/*                                          (see REDOT_AUTHORS.md)        */
 /* Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md). */
 /* Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.                  */
 /*                                                                        */
@@ -1797,29 +1799,29 @@ TEST_CASE("[String] SHA1/SHA256/MD5") {
 	String s = "Redot";
 	String sha1 = "fa4e7bc6eda6baf3600e392f46be46f699bd5a8a";
 	static uint8_t sha1_buf[20] = {
-                0xFA, 0x4E, 0x7B, 0xC6,
-                0xED, 0xA6, 0xBA, 0xF3,
-                0x60, 0x0E, 0x39, 0x2F,
-                0x46, 0xBE, 0x46, 0xF6,
-                0x99, 0xBD, 0x5A, 0x8A
+		0xFA, 0x4E, 0x7B, 0xC6,
+		0xED, 0xA6, 0xBA, 0xF3,
+		0x60, 0x0E, 0x39, 0x2F,
+		0x46, 0xBE, 0x46, 0xF6,
+		0x99, 0xBD, 0x5A, 0x8A
 	};
-        String sha256 = "5b33770f1e60d19c83ba6be484306fa1fcf5266e6ee8de2f4456483e92327c1a";
+	String sha256 = "5b33770f1e60d19c83ba6be484306fa1fcf5266e6ee8de2f4456483e92327c1a";
 	static uint8_t sha256_buf[32] = {
-                0x5B, 0x33, 0x77, 0x0F,
-                0x1E, 0x60, 0xD1, 0x9C,
-                0x83, 0xBA, 0x6B, 0xE4,
-                0x84, 0x30, 0x6F, 0xA1,
-                0xFC, 0xF5, 0x26, 0x6E,
-                0x6E, 0xE8, 0xDE, 0x2F,
-                0x44, 0x56, 0x48, 0x3E,
-                0x92, 0x32, 0x7C, 0x1A
+		0x5B, 0x33, 0x77, 0x0F,
+		0x1E, 0x60, 0xD1, 0x9C,
+		0x83, 0xBA, 0x6B, 0xE4,
+		0x84, 0x30, 0x6F, 0xA1,
+		0xFC, 0xF5, 0x26, 0x6E,
+		0x6E, 0xE8, 0xDE, 0x2F,
+		0x44, 0x56, 0x48, 0x3E,
+		0x92, 0x32, 0x7C, 0x1A
 	};
         String md5 = "a417866a47d1710210ed143c47ad5e4d";
 	static uint8_t md5_buf[16] = {
-                0xA4, 0x17, 0x86, 0x6A,
-                0x47, 0xD1, 0x71, 0x02,
-                0x10, 0xED, 0x14, 0x3C,
-                0x47, 0xAD, 0x5E, 0x4D
+		0xA4, 0x17, 0x86, 0x6A,
+		0x47, 0xD1, 0x71, 0x02,
+		0x10, 0xED, 0x14, 0x3C,
+		0x47, 0xAD, 0x5E, 0x4D
 	};
 
 	PackedByteArray buf = s.sha1_buffer();
