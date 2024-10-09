@@ -8490,9 +8490,9 @@ void Node3DEditor::_load_default_preview_settings() {
 	sun_angle_altitude->set_value(-Math::rad_to_deg(sun_rotation.x));
 	sun_angle_azimuth->set_value(180.0 - Math::rad_to_deg(sun_rotation.y));
 	sun_direction->queue_redraw();
-	environ_sky_color->set_pick_color(Color(0.128, 0.128, 0.128));
-	environ_hz_color->set_pick_color(Color(0.128, 0.128, 0.128));
-	environ_ground_color->set_pick_color(Color(0.128, 0.128, 0.128));
+	environ_sky_color->set_pick_color(Color(0.129, 0.129, 0.129));
+	environ_hz_color->set_pick_color(Color(0.129, 0.129, 0.129));
+	environ_ground_color->set_pick_color(Color(0.129, 0.129, 0.129));
 	environ_energy->set_value(1.0);
 	if (OS::get_singleton()->get_current_rendering_method() != "gl_compatibility") {
 		environ_glow_button->set_pressed(true);
