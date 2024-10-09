@@ -187,7 +187,7 @@ void TransformInterpolator::interpolate_basis_linear(const Basis &p_prev, const 
 	// It turns out we need to guard against zero scale basis.
 	// This is kind of silly, as we should probably fix the bugs elsewhere in Redot that can't deal with
 	// zero scale, but until that time...
-        // TODO: Rewrite this ^
+	// TODO: Rewrite this ^
 	for (int n = 0; n < 3; n++) {
 		Vector3 &axis = r_result[n];
 
