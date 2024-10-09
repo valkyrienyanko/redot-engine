@@ -324,7 +324,7 @@ EditorThemeManager::ThemeConfiguration EditorThemeManager::_create_theme_config(
 				preset_draw_extra_borders = true;
 			} else if (config.preset == "Indigo") {
 				preset_accent_color = Color(0.37, 0.54, 0.91);
-				preset_base_color = Color(0.24, 0.25, 0.28);
+				preset_base_color = Color(0.17, 0.17, 0.20);
 				preset_contrast = 0.4;
 			} else { // Default
 				preset_accent_color = Color(0.87, 0.22, 0.29);
