@@ -572,7 +572,7 @@ void ProjectManager::_open_selected_projects_ask() {
 		_show_error(vformat(TTR("Can't open project \"%s\" at the following path:\n\n%s\n\nThe project settings were created by a newer engine version, whose settings are not compatible with this version."), project.project_name, project.path), popup_min_size);
 		return;
 	}
-	// Check if the project is using features not supported by this build of Godot.
+	// Check if the project is using features not supported by this build of Redot.
 	if (!unsupported_features.is_empty()) {
 		String warning_message = "";
 		for (int i = 0; i < unsupported_features.size(); i++) {
@@ -1143,7 +1143,7 @@ ProjectManager::ProjectManager() {
 		OS::get_singleton()->set_low_processor_usage_mode(true);
 	}
 
-	// TRANSLATORS: This refers to the application where users manage their Godot projects.
+	// TRANSLATORS: This refers to the application where users manage their Redot projects.
 	DisplayServer::get_singleton()->window_set_title(VERSION_NAME + String(" - ") + TTR("Project Manager", "Application"));
 
 	SceneTree::get_singleton()->get_root()->connect("files_dropped", callable_mp(this, &ProjectManager::_files_dropped));
