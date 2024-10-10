@@ -1045,7 +1045,7 @@ Error Main::setup(const char *execpath, int argc, char *argv[], bool p_second_ph
 
 #ifdef MACOS_ENABLED
 		// Ignore the process serial number argument passed by macOS Gatekeeper.
-		// Otherwise, Godot would try to open a non-existent project on the first start and abort.
+		// Otherwise, Redot would try to open a non-existent project on the first start and abort.
 		if (arg.begins_with("-psn_")) {
 			I = N;
 			continue;
@@ -3566,7 +3566,7 @@ int Main::start() {
 					E->get().ends_with(".res") ||
 					E->get().ends_with(".tres")) {
 				// Only consider the positional argument to be a scene path if it ends with
-				// a file extension associated with Godot scenes. This makes it possible
+				// a file extension associated with Redot scenes. This makes it possible
 				// for projects to parse command-line arguments for custom CLI arguments
 				// or other file extensions without trouble. This can be used to implement
 				// "drag-and-drop onto executable" logic, which can prove helpful
@@ -3709,7 +3709,7 @@ int Main::start() {
 			}
 		}
 
-		// For GDExtension docs, use a path that is compatible with Godot modules.
+		// For GDExtension docs, use a path that is compatible with Redot modules.
 		String index_path = gdextension_docs ? doc_tool_path.path_join("doc_classes") : doc_tool_path.path_join("doc/classes");
 		// Create the main documentation directory if it doesn't exist
 		Ref<DirAccess> da = DirAccess::create_for_path(index_path);
