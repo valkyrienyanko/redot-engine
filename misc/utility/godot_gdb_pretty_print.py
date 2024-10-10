@@ -27,7 +27,7 @@ import re
 import gdb  # type: ignore
 
 
-# Printer for Godot StringName variables.
+# Printer for Redot StringName variables.
 class GodotStringNamePrinter:
     def __init__(self, value):
         self.value = value
@@ -40,7 +40,7 @@ class GodotStringNamePrinter:
         return "string"
 
 
-# Printer for Godot String variables.
+# Printer for Redot String variables.
 class GodotStringPrinter:
     def __init__(self, value):
         self.value = value
@@ -53,7 +53,7 @@ class GodotStringPrinter:
         return "string"
 
 
-# Printer for Godot Vector variables.
+# Printer for Redot Vector variables.
 class GodotVectorPrinter:
     def __init__(self, value):
         self.value = value

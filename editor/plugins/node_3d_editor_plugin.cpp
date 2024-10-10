@@ -5262,7 +5262,7 @@ void Node3DEditorViewport::update_transform_numeric() {
 			break;
 		case TRANSFORM_SCALE:
 			// To halve the size of an object in Blender, you scale it by 0.5.
-			// Doing the same in Godot is considered scaling it by -0.5.
+			// Doing the same in Redot is considered scaling it by -0.5.
 			motion *= (value - 1.0);
 			set_message(vformat(TTR("Scaling %s."), motion));
 			break;

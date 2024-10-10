@@ -1,4 +1,4 @@
-# Fish completion for the Godot editor
+# Fish completion for the Redot editor
 # To use it, install this file in `~/.config/fish/completions` then restart your shell.
 # You can also `source` this file directly in your shell startup file.
 #
@@ -38,7 +38,7 @@ function godot_rendering_driver_args
     echo -e "dummy\tDummy renderer"
 end
 
-# Erase existing completions for Godot.
+# Erase existing completions for Redot.
 complete -c redot -e
 
 # General options:

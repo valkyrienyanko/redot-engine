@@ -159,7 +159,7 @@ public:
 	// Index represents Godot 3's value, entry represents Godot 4 value equivalency.
 	// i.e: Button4(L1 - Godot3) -> joypad_button_mappings[4]=9 -> Button9(L1 - Godot4).
 	int joypad_button_mappings[23] = { 0, 1, 2, 3, 9, 10, -1 /*L2*/, -1 /*R2*/, 7, 8, 4, 6, 11, 12, 13, 14, 5, 15, 16, 17, 18, 19, 20 };
-	// Entries for L2 and R2 are -1 since they match to joypad axes and no longer to joypad buttons in Godot 4.
+	// Entries for L2 and R2 are -1 since they match to joypad axes and no longer to joypad buttons in Redot 4.
 
 	LocalVector<RegEx *> class_regexes;
 
@@ -1180,7 +1180,7 @@ bool ProjectConverter3To4::test_array_names() {
 		HashSet<String> all_functions;
 
 		// List of excluded functions from builtin types and global namespace, because currently it is not possible to get list of functions from them.
-		// This will be available when https://github.com/godotengine/godot/pull/49053 or similar will be included into Godot.
+		// This will be available when https://github.com/godotengine/godot/pull/49053 or similar will be included into Redot.
 		static const char *builtin_types_excluded_functions[] = { "dict_to_inst", "inst_to_dict", "bytes_to_var", "bytes_to_var_with_objects", "db_to_linear", "deg_to_rad", "linear_to_db", "rad_to_deg", "randf_range", "snapped", "str_to_var", "var_to_str", "var_to_bytes", "var_to_bytes_with_objects", "move_toward", "uri_encode", "uri_decode", "remove_at", "get_rotation_quaternion", "limit_length", "grow_side", "is_absolute_path", "is_valid_int", "lerp", "to_ascii_buffer", "to_utf8_buffer", "to_utf32_buffer", "to_wchar_buffer", "snapped", "remap", "rfind", nullptr };
 		for (int current_index = 0; builtin_types_excluded_functions[current_index]; current_index++) {
 			all_functions.insert(builtin_types_excluded_functions[current_index]);
@@ -2738,7 +2738,7 @@ void ProjectConverter3To4::rename_joypad_buttons_and_axes(Vector<SourceLine> &so
 				PackedStringArray strings = match->get_strings();
 				const String &button_index_entry = strings[0];
 				int button_index_value = strings[1].to_int();
-				if (button_index_value == 6) { // L2 and R2 are mapped to joypad axes in Godot 4.
+				if (button_index_value == 6) { // L2 and R2 are mapped to joypad axes in Redot 4.
 					line = line.replace("InputEventJoypadButton", "InputEventJoypadMotion");
 					line = line.replace(button_index_entry, ",\"axis\":4,\"axis_value\":1.0");
 				} else if (button_index_value == 7) {

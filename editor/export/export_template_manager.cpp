@@ -757,7 +757,7 @@ String ExportTemplateManager::get_android_source_zip(const Ref<EditorExportPrese
 }
 
 String ExportTemplateManager::get_android_template_identifier(const Ref<EditorExportPreset> &p_preset) {
-	// The template identifier is the Godot version for the default template, and the full path plus md5 hash for custom templates.
+	// The template identifier is the Redot version for the default template, and the full path plus md5 hash for custom templates.
 	if (p_preset.is_valid()) {
 		String android_source_zip = p_preset->get("gradle_build/android_source_template");
 		if (!android_source_zip.is_empty()) {
@@ -1105,7 +1105,7 @@ ExportTemplateManager::ExportTemplateManager() {
 	install_file_dialog->set_access(FileDialog::ACCESS_FILESYSTEM);
 	install_file_dialog->set_file_mode(FileDialog::FILE_MODE_OPEN_FILE);
 	install_file_dialog->set_current_dir(EDITOR_DEF("_export_template_download_directory", ""));
-	install_file_dialog->add_filter("*.tpz", TTR("Godot Export Templates"));
+	install_file_dialog->add_filter("*.tpz", TTR("Redot Export Templates"));
 	install_file_dialog->connect("file_selected", callable_mp(this, &ExportTemplateManager::_install_file_selected).bind(false));
 	add_child(install_file_dialog);
 
