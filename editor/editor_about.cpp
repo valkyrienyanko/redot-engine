@@ -35,6 +35,7 @@
 #include "core/authors.gen.h"
 #include "core/donors.gen.h"
 #include "core/license.gen.h"
+#include "core/redot_authors.gen.h"
 #include "editor/editor_string_names.h"
 #include "editor/gui/editor_version_button.h"
 #include "editor/themes/editor_scale.h"
@@ -220,14 +221,30 @@ EditorAbout::EditorAbout() {
 	dev_sections.push_back(TTR("Project Manager", "Job Title"));
 	dev_sections.push_back(TTR("Developers"));
 	const char *const *dev_src[] = {
+		REDOT_AUTHORS_FOUNDERS,
+		REDOT_AUTHORS_LEAD_DEVELOPERS,
+		REDOT_AUTHORS_PROJECT_MANAGERS,
+		REDOT_AUTHORS_DEVELOPERS,
+	};
+	tc->add_child(_populate_list(TTR("Authors"), dev_sections, dev_src, 0b1)); // First section (Project Founders) is always one column.
+
+	// Godot Authors.
+
+	List<String> godot_dev_sections;
+	godot_dev_sections.push_back(TTR("Project Founders"));
+	godot_dev_sections.push_back(TTR("Lead Developer"));
+	// TRANSLATORS: This refers to a job title.
+	godot_dev_sections.push_back(TTR("Project Manager", "Job Title"));
+	godot_dev_sections.push_back(TTR("Developers"));
+	const char *const *godot_dev_src[] = {
 		AUTHORS_FOUNDERS,
 		AUTHORS_LEAD_DEVELOPERS,
 		AUTHORS_PROJECT_MANAGERS,
 		AUTHORS_DEVELOPERS,
 	};
-	tc->add_child(_populate_list(TTR("Authors"), dev_sections, dev_src, 0b1)); // First section (Project Founders) is always one column.
+	tc->add_child(_populate_list(TTR("Godot Authors"), godot_dev_sections, godot_dev_src, 0b1)); // First section (Project Founders) is always one column.
 
-	// Donors.
+	// Godot Donors.
 
 	List<String> donor_sections;
 	donor_sections.push_back(TTR("Patrons"));
@@ -248,7 +265,7 @@ EditorAbout::EditorAbout() {
 		DONORS_MEMBERS_PLATINUM,
 		DONORS_MEMBERS_GOLD,
 	};
-	tc->add_child(_populate_list(TTR("Donors"), donor_sections, donor_src, 0b1, true)); // First section (Patron) is one column.
+	tc->add_child(_populate_list(TTR("Godot Donors"), donor_sections, donor_src, 0b1, true)); // First section (Patron) is one column.
 
 	// License.
 

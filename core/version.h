@@ -85,4 +85,44 @@ extern const char *const VERSION_HASH;
 // Set to 0 if unknown.
 extern const uint64_t VERSION_TIMESTAMP;
 
+// Defines the main "branch" version. Patch versions in this branch should be
+// forward-compatible.
+// Example: "3.1"
+#define GODOT_VERSION_BRANCH _MKSTR(GODOT_VERSION_MAJOR) "." _MKSTR(GODOT_VERSION_MINOR)
+#if GODOT_VERSION_PATCH
+// Example: "3.1.4"
+#define GODOT_VERSION_NUMBER GODOT_VERSION_BRANCH "." _MKSTR(GODOT_VERSION_PATCH)
+#else // patch is 0, we don't include it in the "pretty" version number.
+// Example: "3.1" instead of "3.1.0"
+#define GODOT_VERSION_NUMBER GODOT_VERSION_BRANCH
+#endif // GODOT_VERSION_PATCH
+
+// Version number encoded as hexadecimal int with one byte for each number,
+// for easy comparison from code.
+// Example: 3.1.4 will be 0x030104, making comparison easy from script.
+#define GODOT_VERSION_HEX 0x10000 * GODOT_VERSION_MAJOR + 0x100 * GODOT_VERSION_MINOR + GODOT_VERSION_PATCH
+
+// TODO: determine how to deal with godot compatible versioning behavior
+
+// Describes the full configuration of that Redot version, including the version number,
+// the status (beta, stable, etc.) and potential module-specific features (e.g. mono).
+// Example: "3.1.4.stable.mono"
+// #define GODOT_VERSION_FULL_CONFIG VERSION_NUMBER "." GODOT_VERSION_STATUS VERSION_MODULE_CONFIG
+
+// Similar to GODOT_VERSION_FULL_CONFIG, but also includes the (potentially custom) VERSION_BUILD
+// description (e.g. official, custom_build, etc.).
+// Example: "3.1.4.stable.mono.official"
+// #define GODOT_VERSION_FULL_BUILD GODOT_VERSION_FULL_CONFIG "." GODOT_VERSION_BUILD
+
+// Same as above, but prepended with Redot's name and a cosmetic "v" for "version".
+// Example: "Godot v3.1.4.stable.official.mono"
+// #define GODOT_VERSION_FULL_NAME GODOT_VERSION_NAME " v" GODOT_VERSION_FULL_BUILD
+
+// Git commit hash, generated at build time in `core/version_hash.gen.cpp`.
+// extern const char *const GODOT_VERSION_HASH;
+
+// Git commit date UNIX timestamp (in seconds), generated at build time in `core/version_hash.gen.cpp`.
+// Set to 0 if unknown.
+// extern const uint64_t GODOT_VERSION_TIMESTAMP;
+
 #endif // VERSION_H

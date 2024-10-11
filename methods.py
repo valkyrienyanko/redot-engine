@@ -214,6 +214,10 @@ def get_version_info(module_version_string="", silent=False):
         "module_config": str(version.module_config) + module_version_string,
         "website": str(version.website),
         "docs_branch": str(version.docs),
+        "godot_major": str(version.godot_major),
+        "godot_minor": str(version.godot_minor),
+        "godot_patch": str(version.godot_patch),
+        "godot_status": str(version.godot_status),
     }
 
     # For dev snapshots (alpha, beta, RC, etc.) we do not commit status change to Git,

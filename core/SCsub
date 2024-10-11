@@ -191,6 +191,10 @@ def version_info_builder(target, source, env):
 #define VERSION_WEBSITE "{website}"
 #define VERSION_DOCS_BRANCH "{docs_branch}"
 #define VERSION_DOCS_URL "https://docs.redotengine.org/en/" VERSION_DOCS_BRANCH
+#define GODOT_VERSION_MAJOR {godot_major}
+#define GODOT_VERSION_MINOR {godot_minor}
+#define GODOT_VERSION_PATCH {godot_patch}
+#define GODOT_VERSION_STATUS "{godot_status}"
 """.format(**env.version_info)
         )
 
@@ -258,6 +262,10 @@ env.CommandNoCache(
     "#thirdparty/certs/ca-certificates.crt",
     env.Run(core_builders.make_certs_header),
 )
+
+# Authors
+env.Depends("#core/redot_authors.gen.h", "../REDOT_AUTHORS.md")
+env.CommandNoCache("#core/redot_authors.gen.h", "../REDOT_AUTHORS.md", env.Run(core_builders.make_redot_authors_header))
 
 # Authors
 env.Depends("#core/authors.gen.h", "../AUTHORS.md")

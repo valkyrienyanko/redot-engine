@@ -1764,8 +1764,16 @@ Dictionary Engine::get_version_info() const {
 	return ::Engine::get_singleton()->get_version_info();
 }
 
+Dictionary Engine::get_godot_compatible_version_info() const {
+	return ::Engine::get_singleton()->get_godot_compatible_version_info();
+}
+
 Dictionary Engine::get_author_info() const {
 	return ::Engine::get_singleton()->get_author_info();
+}
+
+Dictionary Engine::get_godot_author_info() const {
+	return ::Engine::get_singleton()->get_godot_author_info();
 }
 
 TypedArray<Dictionary> Engine::get_copyright_info() const {
@@ -1774,6 +1782,10 @@ TypedArray<Dictionary> Engine::get_copyright_info() const {
 
 Dictionary Engine::get_donor_info() const {
 	return ::Engine::get_singleton()->get_donor_info();
+}
+
+Dictionary Engine::get_godot_donor_info() const {
+	return ::Engine::get_singleton()->get_godot_donor_info();
 }
 
 Dictionary Engine::get_license_info() const {
@@ -1905,9 +1917,12 @@ void Engine::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_main_loop"), &Engine::get_main_loop);
 
 	ClassDB::bind_method(D_METHOD("get_version_info"), &Engine::get_version_info);
+	ClassDB::bind_method(D_METHOD("get_godot_compatible_version_info"), &Engine::get_godot_compatible_version_info);
 	ClassDB::bind_method(D_METHOD("get_author_info"), &Engine::get_author_info);
+	ClassDB::bind_method(D_METHOD("get_godot_author_info"), &Engine::get_godot_author_info);
 	ClassDB::bind_method(D_METHOD("get_copyright_info"), &Engine::get_copyright_info);
 	ClassDB::bind_method(D_METHOD("get_donor_info"), &Engine::get_donor_info);
+	ClassDB::bind_method(D_METHOD("get_godot_donor_info"), &Engine::get_godot_donor_info);
 	ClassDB::bind_method(D_METHOD("get_license_info"), &Engine::get_license_info);
 	ClassDB::bind_method(D_METHOD("get_license_text"), &Engine::get_license_text);
 
