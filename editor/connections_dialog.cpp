@@ -263,11 +263,20 @@ StringName ConnectDialog::generate_method_callback_name(Node *p_source, const St
 	subst["signal_name"] = p_signal_name.to_snake_case();
 
 	String dst_method;
+
+	#ifdef MODULE_MONO_ENABLED
+	if (p_source == p_target) {
+		dst_method = "On" + p_signal_name.to_pascal_case();
+	} else {
+		dst_method = "On" + node_name.to_pascal_case() + p_signal_name.to_pascal_case();
+	}
+	#else
 	if (p_source == p_target) {
 		dst_method = String(GLOBAL_GET("editor/naming/default_signal_callback_to_self_name")).format(subst);
 	} else {
 		dst_method = String(GLOBAL_GET("editor/naming/default_signal_callback_name")).format(subst);
 	}
+	#endif
 
 	return dst_method;
 }
